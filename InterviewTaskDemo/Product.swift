@@ -37,6 +37,10 @@ struct Product: Codable, Identifiable {
     let meta: Meta
     let thumbnail: String
     let images: [String]
+    
+    var formattedRating: String {
+        return String(format: "%.1f", rating)
+    }
 }
 
 struct Dimensions: Codable {
@@ -58,4 +62,10 @@ struct Meta: Codable {
     let updatedAt: String
     let barcode: String
     let qrCode: String
+}
+
+
+extension Product {
+    static let sampleData: Product = .init(id: 1, title: "Essence Mascara Lash Princess", description: "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.", category: "beauty", price: 9.99, discountPercentage: 7.17, rating: 4.94, stock: 50, tags: ["beauty", "mascara"], brand: "Essence", sku: "RCH45Q1A", weight: 2, dimensions: .init(width: 23.17, height: 14.43, depth: 28.01), warrantyInformation: "1 month warranty", shippingInformation: "Ships in 1 month", availabilityStatus: "Low Stock", reviews: [.init(rating: 2, comment: "Very unhappy with my purchase!", date: "2024-05-23T08:56:21.618Z", reviewerName: "John Doe", reviewerEmail: "john.doe@x.dummyjson.com")], returnPolicy: "30 days return policy", minimumOrderQuantity: 24, meta: .init(createdAt: "2024-05-23T08:56:21.618Z", updatedAt: "2024-05-23T08:56:21.618Z", barcode: "9164035109868", qrCode: "..."), thumbnail: "...", images: ["...", "..."])
+    
 }
