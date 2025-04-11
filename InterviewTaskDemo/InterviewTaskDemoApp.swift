@@ -12,7 +12,7 @@ struct InterviewTaskDemoApp: App {
     @StateObject var productViewModel = ProductViewModel()
     var body: some Scene {
         WindowGroup {
-            MainView()
+            ProductsView()
                 .environmentObject(productViewModel)
         }
     }

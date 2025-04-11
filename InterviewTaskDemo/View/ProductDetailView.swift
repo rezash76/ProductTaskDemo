@@ -17,44 +17,60 @@ struct ProductDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                AsyncImage(url: URL(string: product.thumbnail)) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 250)
-                        .clipped()
-                        .cornerRadius(20)
-                } placeholder: {
-                    ProgressView()
-                        .frame(height: 400)
-                }
-
-                Text(product.title)
-                    .font(.title.bold())
-
-                HStack {
-                    Text(product.formattedPrice)
-                    Spacer()
-                    Text("Stock: \(product.stock)")
-                }
-                .font(.subheadline)
-
-                Text("Discount: \(product.formattedDiscountPercentage)")
-                    .font(.subheadline)
-                    .foregroundColor(.red)
-                
-                
-                Text(product.description)
-                    .font(.body)
+            VStack(spacing: 16) {
+                productImage
+                productTitle
+                productPriceDetail
+                Divider()
+                productDescription
                     .padding(.top)
-
                 Spacer()
             }
             .padding()
         }
         .navigationTitle("Product Details")
         .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+extension ProductDetailView {
+    var productImage: some View {
+        AsyncImage(url: URL(string: product.thumbnail)) { image in
+            image
+                .resizable()
+                .scaledToFill()
+                .frame(height: 250)
+                .clipped()
+                .cornerRadius(20)
+        } placeholder: {
+            ProgressView()
+                .frame(height: 250)
+        }
+    }
+    
+    var productTitle: some View {
+        Text(product.title)
+            .font(.title.bold())
+    }
+    
+    var productPriceDetail: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text(product.formattedPrice)
+                Spacer()
+                Text("Stock: \(product.stock)")
+            }
+            .font(.subheadline)
+            
+            Text("Discount: \(product.formattedDiscountPercentage)")
+                .font(.subheadline)
+                .foregroundColor(.red)
+        }
+    }
+    
+    var productDescription: some View {
+        Text(product.description)
+            .font(.body)
     }
 }
 
