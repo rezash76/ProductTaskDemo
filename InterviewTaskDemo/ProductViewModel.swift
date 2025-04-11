@@ -12,7 +12,7 @@ class ProductViewModel: ObservableObject {
     
     // MARK: - Published properties
     @Published var products = [Product]()
-    @Published var isLoading: Bool = false
+    @Published var isLoading: Bool = true
     
     // MARK: - Service
     private let productService = ProductService()

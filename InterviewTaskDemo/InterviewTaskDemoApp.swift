@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct InterviewTaskDemoApp: App {
+    @StateObject var productViewModel = ProductViewModel()
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(productViewModel)
         }
     }
 }

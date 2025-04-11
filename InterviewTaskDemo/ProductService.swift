@@ -30,7 +30,7 @@ class ProductService {
                 case .finished:
                     break
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print(error)
                 }
             }) { [weak self] productResponse in
                 self?.products = productResponse.products
