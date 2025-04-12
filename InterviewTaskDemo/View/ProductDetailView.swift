@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProductDetailView: View {
     
@@ -35,17 +36,12 @@ struct ProductDetailView: View {
 
 extension ProductDetailView {
     var productImage: some View {
-        AsyncImage(url: URL(string: product.thumbnail)) { image in
-            image
-                .resizable()
-                .scaledToFill()
-                .frame(height: 250)
-                .clipped()
-                .cornerRadius(20)
-        } placeholder: {
-            ProgressView()
-                .frame(height: 250)
-        }
+        WebImage(url: product.thumbnailURL)
+            .resizable()
+            .indicator(.progress)
+            .transition(.fade)
+            .scaledToFit()
+            .frame(height: 250)
     }
     
     var productTitle: some View {

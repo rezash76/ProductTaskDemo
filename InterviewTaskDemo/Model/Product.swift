@@ -49,6 +49,10 @@ struct Product: Codable, Identifiable {
     var formattedRating: String {
         return String(format: "%.1f", rating)
     }
+    
+    var thumbnailURL: URL? {
+        return URL(string: thumbnail)
+    }
 }
 
 struct Dimensions: Codable {
