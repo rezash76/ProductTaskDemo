@@ -1,6 +1,6 @@
 # 🛒 iOS Technical Task – Product Manager App
 
-This app is a solution to the iOS technical task that fetches products from a REST API, stores them locally, and displays them using SwiftUI. The app architecture is based on **MVVM** and uses **Combine** for reactive data flow.
+This app is a solution to the iOS technical task that fetches products from a REST API, stores them locally, and displays them using SwiftUI. The app architecture is based on **MVVM** and uses **Combine** for reactive data flow. I use **SDWebImageSwiftUI** for efficient image loading and caching.
 
 ---
 
